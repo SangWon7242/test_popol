@@ -1,0 +1,423 @@
+/* 폰트 적용 */
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html > body {
+  font-family: "GmarketSansMedium";
+}
+
+/* 라이브러리 */
+.con {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 커스텀 */
+:root {
+  --site-bg-color: #12cfca;
+}
+
+/* pc 탑바 구현 시작 */
+.pc-top-bar {
+  height: 250px;
+  position: relative;
+  z-index: 10;
+}
+
+.pc-top-bar__logo > img {
+  width: 71px;
+  height: 94px;
+}
+
+.widget-menu > ul > li > a {
+  color: #888;
+  font-size: 14px;
+  display: inline-block;
+  padding: 0 10px;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.widget-menu > ul > li:hover > a {
+  color: rgba(136, 136, 136, 0.5);
+}
+
+.widget-menu > ul > li:first-child > a::before,
+.widget-menu > ul > li:first-child > a::after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: freeTooltip 1s infinite linear;
+  z-index: 100;
+}
+
+.widget-menu > ul > li:first-child > a::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  top: 100%;
+  border-bottom: 8px solid var(--site-bg-color);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+.widget-menu > ul > li:first-child > a::after {
+  content: "무료배송";
+  white-space: nowrap;
+  color: white;
+  top: calc(100% + 3px);
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  background-color: var(--site-bg-color);
+}
+
+.btn-group > a {
+  color: #fff;
+  display: inline-block;
+  padding: 6px 20px 4px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-group > a:first-child {
+  background-color: #ff7e6b;
+  border: 1px solid #ff7e6b;
+}
+
+.btn-group > a:first-child:hover {
+  background-color: #fff;
+  color: #ff7e6b;
+}
+
+.btn-group > a:last-child {
+  background-color: var(--site-bg-color);
+  border-color: var(--site-bg-color);
+}
+
+.btn-group > a:last-child:hover {
+  background-color: #10adb5;
+}
+
+.menu-1 > ul {
+  width: 80%;
+  gap: 0 40px;
+}
+
+.menu-1 > ul > li {
+  width: calc(100% / 4);
+  position: relative;
+}
+
+.menu-1 > ul > li > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #212121;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.menu-1 > ul > li:hover > a {
+  color: rgba(33, 33, 33, 0.5);
+}
+
+.menu-1 > ul > li:last-child:hover > a:first-child {
+  display: none;
+}
+
+.menu-1 > ul > li:last-child > a:last-child {
+  display: none;
+}
+
+.menu-1 > ul > li:last-child:hover > a:last-child {
+  display: flex;
+}
+
+.menu-1 > ul ul {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 10px);
+  background-color: var(--site-bg-color);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.menu-1 > ul > li:hover > ul {
+  opacity: 1;
+}
+
+.menu-1 > ul ul > li > a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 15px;
+  transition: color 0.3s;
+  white-space: nowrap;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-1 > ul ul > li:hover > a {
+  background-color: white;
+  color: var(--site-bg-color);
+}
+
+.second-section__right-box a {
+  position: relative;
+  z-index: 10;
+}
+
+.second-section__right-box a::before,
+.second-section__right-box a::after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: freeTooltip 1s infinite linear;
+}
+
+.second-section__right-box a::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  top: 100%;
+  border-bottom: 8px solid var(--site-bg-color);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+.second-section__right-box a::after {
+  content: "무료배송";
+  white-space: nowrap;
+  color: white;
+  top: calc(100% + 3px);
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  background-color: var(--site-bg-color);
+}
+
+/* 애니메이션 */
+@keyframes freeTooltip {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 2px;
+  }
+}
+/* pc 탑바 구현 끝 */
+
+/* 모바일 탑바 구현 시작 */
+.mobile-top-bar__logo > img {
+  width: 104px;
+  height: 24px;
+}
+
+/* 모바일 탑바 구현 끝 */
+
+/* .pc-swiper-banner-box 구현 시작 */
+.pc-swiper-banner-box {
+  height: 90vh;
+}
+
+.pc-swiper-banner-box .swiper-slide {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pc-swiper-banner-box .swiper-slide::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.pc-swiper-banner-box .swiper-slide-wrap-1 {
+  background-image: url(../images/pc-banner-1.png);
+}
+
+.pc-swiper-banner-box .swiper-slide-wrap-2 {
+  background-image: url(../images/pc-banner-2.png);
+}
+
+.pc-swiper-banner-box .swiper-slide > .text-wrap > p {
+  font-size: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.pc-swiper-banner-box .swiper-slide > .btn-box > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  width: 190px;
+  height: 70px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+/* .pc-swiper-banner-box 구현 끝 */
+
+/* .mobile-swiper-banner-box 구현 시작 */
+.mobile-swiper-banner-box {
+  height: 90vh;
+  position: relative;
+  z-index: 1;
+}
+
+.mobile-swiper-banner-box .swiper-slide {
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.mobile-swiper-banner-box .swiper-slide-wrap-1 {
+  background-image: url(../images/mobile-banner-1.jpg);
+}
+
+.mobile-swiper-banner-box .swiper-slide-wrap-2 {
+  background-image: url(../images/mobile-banner-2.jpg);
+}
+
+.mobile-swiper-banner-box .swiper-slide-wrap-3 {
+  background-image: url(../images/mobile-banner-3.jpg);
+}
+
+.mobile-swiper-banner-box .swiper-slide-wrap-4 {
+  background-image: url(../images/mobile-banner-4.jpg);
+}
+/* .mobile-swiper-banner-box 구현 끝 */
+
+/* pc, mobile 공통 페이지네이션 시작 */
+.swiper-banner-box .swiper-pagination-bullet {
+  border: 2px solid white;
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+}
+
+.swiper-banner-box .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: white;
+}
+/* pc, mobile 공통 페이지네이션 끝 */
+
+/* bottom-bar 구현 시작 */
+.bottom-bar {
+  padding: 0 15px;
+}
+
+.bottom-bar__link-box > div:first-child ul > li > a {
+  display: block;
+  padding: 13px;
+  color: #999;
+  font-size: 14px;
+}
+
+.bottom-bar__btn-group > ul > li > a {
+  display: block;
+  padding: 10px 5px 5px 5px;
+}
+
+.bottom-bar__btn-group > ul > li:first-child > a > img {
+  width: 190px;
+}
+
+.bottom-bar__btn-group > ul > li > a > img {
+  width: 40px;
+}
+
+.text-box > div > p {
+  color: #999;
+  font-size: 13px;
+}
+
+.text-box-mob {
+  display: none;
+}
+/* bottom-bar 구현 끝 */
+
+/* 미디어쿼리 작업 시작 */
+
+@media (width <= 1574px) {
+  .bottom-bar .text-box {
+    margin-top: 50px;
+  }
+}
+
+/* 화면 너비가 992px 이상일 때 */
+@media (width >= 992px) {
+  .mobile-top-bar {
+    display: none;
+  }
+
+  .mobile-swiper-banner-box {
+    display: none;
+  }
+}
+
+/* 화면 너비가 991px 이하일 때 */
+@media (width <= 991px) {
+  .pc-top-bar {
+    display: none;
+  }
+
+  .pc-swiper-banner-box {
+    display: none;
+  }
+
+  .mobile-swiper-banner-box {
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .bottom-bar__link-box {
+    height: 30px !important;
+  }
+
+  .bottom-bar__link-box > div > ul > li:nth-child(-n + 4) {
+    display: none;
+  }
+
+  .bottom-bar__link-box > div:first-child ul > li > a {
+    font-size: 11px;
+  }
+
+  .bottom-bar__link-box > :nth-child(2) {
+    display: none;
+  }
+
+  .bottom-bar .text-box {
+    margin-top: 10px;
+  }
+
+  .bottom-bar .text-box > div > p {
+    font-size: 11px;
+    gap: 0;
+  }
+
+  .text-box-mob {
+    display: block;
+  }
+}
+/* 미디어쿼리 작업 끝 */
